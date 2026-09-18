@@ -173,7 +173,9 @@
   .field{margin-bottom:18px}
   .field label{display:block;font-family:var(--serif);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sub);margin-bottom:7px}
   .field input,.field select,.field textarea{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:var(--radius);
-    font-family:inherit;font-size:.95rem;background:var(--paper);color:var(--ink)}
+    font-family:inherit;font-size:16px;background:var(--paper);color:var(--ink)}
+    /* 16px 固定: iOS Safari は入力欄の font-size が 16px 未満だとタップ時に自動ズームし、
+       ズーム後に画面から要素がはみ出して見える（今回の「希望日の枠が飛び出る」症状の原因）。 */
   .field input:focus,.field select:focus,.field textarea:focus{outline:0;border-color:var(--accent)}
   .form .btn{width:100%;justify-content:center;margin-top:8px}
   .form-ok{display:none;border:1px solid var(--line);background:var(--mist);border-radius:var(--radius);padding:15px;text-align:center;margin-top:16px;font-size:.9rem}
