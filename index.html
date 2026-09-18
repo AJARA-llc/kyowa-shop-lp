@@ -658,14 +658,16 @@
   //        https://docs.google.com/forms/d/e/＜FORM_ID＞/formResponse
   //   action が空の間はデモ表示のみ（送信しない）。設定済み: 2026-09-15 テスト用フォーム（協和様本番用に差し替え可）。
   var GFORM = {
-    // 協和様 本番フォーム（2026-09-18 差し替え / forms.gle/ncmtUoK1dJLmHNvb7）
+    // 協和様 本番フォーム（2026-09-18 差し替え、同日 先方修正反映 / forms.gle/ncmtUoK1dJLmHNvb7）
+    // 修正内容: 重複していた Preferred Time を1問に統合、Email Adress -> Address、
+    // Notes を段落（長文）型に。entry ID はいずれも変わらず（質問の削除ではなく編集）。
     action: "https://docs.google.com/forms/d/e/1FAIpQLSf8lI7n63DGZPTgH1EbniPI-9BuT90Mlqd1PuJbqPSE_N9y_A/formResponse",
     fields: {
       name:    "entry.2035281584",
       email:   "entry.1229376326",
       phone:   "entry.260955202",
-      date:    "entry.804798100",                       // 「日付」型 → _year/_month/_day に分割
-      time:    ["entry.1165177196", "entry.1849326481"], // 「時刻」型が 2 問（重複・両方必須）→ 同じ値を両方へ
+      date:    "entry.804798100",     // 「日付」型 → _year/_month/_day に分割
+      time:    "entry.1165177196",    // 「時刻」型 → _hour/_minute に分割
       country: "entry.1430801587",
       people:  "entry.655687107",
       msg:     "entry.1490935018"
