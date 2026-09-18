@@ -58,7 +58,7 @@
   .section{padding:96px 0}
   .eyebrow{display:block;font-family:var(--serif);font-size:1.05rem;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);margin:0 0 18px;font-weight:600}
   .h2{font-size:clamp(1.5rem,3.4vw,2.15rem);line-height:1.4;margin:0 0 20px;font-weight:500;letter-spacing:.02em;text-wrap:balance}
-  .lead{font-size:1rem;color:var(--sub);max-width:60ch;font-weight:400}
+  .lead{font-size:1rem;color:var(--sub);max-width:60ch;font-weight:400;white-space:pre-line}  /* JA本文は文末の「。」ごとに改行（辞書側で\nを挿入）。white-space:pre-line で\nは改行、それ以外は通常どおり折り返す。EN側には\nを入れていないため影響なし。 */
   /* text-wrap:pretty は Safari で禁則処理（行頭の句読点）を壊すため使わない（2026-09-18 実測） */
   .jp{text-wrap:balance}
   .center{text-align:center}
@@ -97,7 +97,7 @@
   .fv-inner{text-align:center;max-width:760px;margin:0 auto;padding:0 28px}
   .fv .kicker{font-family:var(--serif);font-size:1.1rem;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
   .fv h1{font-size:clamp(1.9rem,4.6vw,3rem);line-height:1.5;font-weight:500;margin:0 0 22px;letter-spacing:.03em;text-wrap:balance}
-  .fv p.sub{color:var(--sub);font-size:1.02rem;margin:0 auto 30px;max-width:46em;text-wrap:balance}
+  .fv p.sub{color:var(--sub);font-size:1.02rem;margin:0 auto 30px;max-width:46em;text-wrap:balance;white-space:pre-line}
   .fv-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:44px}
   .fv-hero .ph{min-height:min(58vh,540px);border-radius:0;border-left:0;border-right:0}
   .swatch-row{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:26px 0 4px}
@@ -167,7 +167,7 @@
   #reserve{background:var(--paper)}
   .reserve-inner{max-width:660px;margin:0 auto;text-align:center}
   .reserve-note{display:inline-block;border:1px solid var(--accent-soft);background:var(--accent-soft);color:#8a3d26;
-    border-radius:var(--radius);padding:12px 20px;font-size:.86rem;margin:8px 0 30px;line-height:1.7}
+    border-radius:var(--radius);padding:12px 20px;font-size:.86rem;margin:8px 0 30px;line-height:1.7;white-space:pre-line}
   .form{text-align:left;border:1px solid var(--line);border-radius:var(--radius);padding:clamp(24px,4vw,40px);background:#fff}
   .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
   .field{margin-bottom:18px}
@@ -187,7 +187,7 @@
   .faq-q{width:100%;text-align:left;background:none;border:0;font-family:inherit;font-weight:500;font-size:1rem;
     padding:22px 4px;cursor:pointer;display:flex;justify-content:space-between;gap:14px;align-items:center;color:var(--ink)}
   .faq-q .mk{flex:0 0 auto;color:var(--accent);font-size:1.2rem;transition:transform .2s;font-family:var(--serif)}
-  .faq-a{padding:0 4px;max-height:0;overflow:hidden;transition:max-height .28s ease,padding .28s ease;color:var(--sub);font-size:.92rem}
+  .faq-a{padding:0 4px;max-height:0;overflow:hidden;transition:max-height .28s ease,padding .28s ease;color:var(--sub);font-size:.92rem;white-space:pre-line}
   .faq-item.open .faq-a{padding:0 4px 22px;max-height:460px}
   .faq-item.open .mk{transform:rotate(45deg)}
 
@@ -422,6 +422,7 @@
             <li data-i18n="map.acc1">JR浅草橋駅 徒歩5分</li>
             <li data-i18n="map.acc2">JR馬喰町駅 徒歩5分</li>
             <li data-i18n="map.acc3">JR秋葉原駅 徒歩10分</li>
+            <li data-i18n="map.acc4">都営浅草線「浅草橋駅」徒歩10分</li>
           </ul></div></div>
           <div class="info-row"><div class="k">Hours</div><div class="v" data-i18n="map.hours">10:00 – 16:00（土日も営業）</div></div>
           <div class="info-row"><div class="k">Payment</div><div class="v" data-i18n="map.payment">クレジットカード</div></div>
@@ -517,41 +518,41 @@
     ja: {
       "nav.reserve":"ご来店予約","cta.reserve":"ご来店を予約する","cta.products":"商品を見る",
       "fv.h1":"毎日を、元気にするかばんに。",
-      "fv.sub":"秋葉原から徒歩10分、浅草橋にある協和 初のフラッグシップ店。色とりどりのラインナップを、実際に手に取ってお選びいただけます。",
+      "fv.sub":"秋葉原から徒歩10分、浅草橋にある協和 初のフラッグシップ店。\n色とりどりのラインナップを、実際に手に取ってお選びいただけます。",
       "colors.count":"50 を超えるカラー展開",
       "phil.quote":"「元気の出る」かばんを、つくってゆきたい。",
-      "phil.lead":"かばんは、ただの道具ではありません。使う人の毎日にインスピレーションを与え、その日の装いを彩り、あなたらしさを映す相棒。私たちは、そんな「特別なかばん」との出会いをこの店でお届けしています。",
-      "concept.h2":"協和、はじめてのフラッグシップショップ。",
-      "concept.copy1":"1948年の創業以来、ランドセルからスーツケース、ビジネスバッグ、カジュアルバッグ、小物まで、あらゆるシーンに向けた洗練されたかばんを届けてきた協和。その世界観をワンフロアに凝縮した、はじめてのフラッグシップショップです。東神田・浅草橋の落ち着いた通りで、定番から限定カラーまでじっくりご覧いただけます。旅の途中に、あなただけの一点を見つけてください。",
-      "concept.copy2":"スタッフが一人ひとりに寄り添い、用途やお好みに合わせてお選びをお手伝いします。手に取り、背負い、質感を確かめながら——写真だけでは伝わらない魅力を、この店で体験してください。",
+      "phil.lead":"かばんは、ただの道具ではありません。\n使う人の毎日にインスピレーションを与え、その日の装いを彩り、あなたらしさを映す相棒。\n私たちは、そんな「特別なかばん」との出会いをこの店でお届けしています。",
+      "concept.h2":"協和、初のフラッグシップショップ。",
+      "concept.copy1":"1948年の創業以来、ランドセルからスーツケース、ビジネスバッグ、カジュアルバッグ、小物まで、あらゆるシーンに向けた洗練されたかばんを届けてきた協和。\nその世界観をワンフロアに凝縮した、初のフラッグシップショップです。\n東神田・浅草橋の落ち着いた通りで、定番から限定カラーまでじっくりご覧いただけます。\n旅の途中に、あなただけの一点を見つけてください。",
+      "concept.copy2":"スタッフが一人ひとりに寄り添い、用途やお好みに合わせてお選びをお手伝いします。\n見て、触れて、体感していただける——私たちの想いと技術が詰まったコレクションを届ける、ブランドの発信基地です。",
       "prod.h2":"代表的なアイテム",
-      "prod.lead":"「Leather Style」をはじめ、TRAVELISTなど幅広いラインナップの中から一部をご紹介します。ラインナップは随時変更となる場合があります。",
+      "prod.lead":"「Leather Style」をはじめ、TRAVELISTなど幅広いラインナップの中から一部をご紹介します。\nラインナップは随時変更となる場合があります。",
       "prod.1":"Kawaii Chic ショルダー（レギュラー）","prod.2":"Kawaii Chic ミニ バックパック","prod.3":"Leather-Style バックパック",
       "prod.note":"価格は参考。ラインナップ・価格は変更となる場合があります。","prod.notelink":"全ラインナップを見る",
       "colors.h2":"あなたの一色が、きっと見つかる。",
-      "colors.lead":"豊富なカラー展開が、協和のかばんの魅力。店頭では実際の色味を、光の下でお確かめいただけます。",
+      "colors.lead":"豊富なカラー展開が、協和のかばんの魅力。\n店頭では実際の色味を、光の下でお確かめいただけます。",
       "story.h2":"凛とした美しさを、日常へ。",
-      "story.lead":"日常に凛とした美しさを求める大人のためのバッグ・アクセサリーライン。洗練されたデザインの中に、日本ならではの繊細な感覚と静かな品格を宿しています。",
+      "story.lead":"日常に凛とした美しさを求める大人のためのバッグ・アクセサリーライン。\n洗練されたデザインの中に、日本ならではの繊細な感覚と静かな品格を宿しています。",
       "story.s1h":"1948年創業のものづくり","story.s1p":"1948年創業、クラリーノ®ランドセルも手がける協和が、長年の製造技術をこのラインに注ぎます。",
       "story.s2h":"クラリーノ®という素材","story.s2p":"水・汗・傷に強く、革のような風合いで軽やか。日本製の高品質な素材が、毎日の使いやすさを支えます。",
       "story.s3h":"職人の手仕事","story.s3p":"自社工場で、熟練の職人が一点ずつ丁寧に仕立てます。主張しすぎず、持つ人をそっと引き立てる仕上がりに。",
       "sns.h2":"SNSでも紹介されています","sns.lead":"来店・商品を紹介いただいた投稿。各枠に投稿URL（permalink）を貼るだけで埋め込めます。","sns.slot":"投稿URLを貼るだけ","sns.cta":"Instagramで見る（@kyowa_shop）",
       "map.h2":"店舗へのご案内",
-      "map.acc1":"JR浅草橋駅 徒歩5分","map.acc2":"JR馬喰町駅 徒歩5分","map.acc3":"JR秋葉原駅 徒歩10分",
+      "map.acc1":"JR浅草橋駅 徒歩5分","map.acc2":"JR馬喰町駅 徒歩5分","map.acc3":"JR秋葉原駅 徒歩10分","map.acc4":"都営浅草線「浅草橋駅」徒歩10分",
       "map.hours":"10:00 – 16:00（土日も営業）","map.payment":"クレジットカード","map.address":"〒101-0031 東京都千代田区東神田2-10-16 WORKING FORT東神田",
       "footer.addr":"〒101-0031 東京都千代田区東神田2-10-16 WORKING FORT東神田","footer.hours":"10:00–16:00（土日も営業）","footer.company":"株式会社協和",
       "rsv.h2":"ご来店の予約","rsv.lead":"日時をお知らせいただければ、スムーズにご案内いたします。",
-      "rsv.note":"ご予約なしでもご入店・ご購入いただけます。事前予約は、確実にご案内するための任意のご連絡です。",
+      "rsv.note":"ご予約なしでもご入店・ご購入いただけます。\n事前予約は、確実にご案内するための任意のご連絡です。",
       "f.name":"お名前","f.email":"メール","f.phone":"電話番号","f.date":"希望日","f.time":"希望時間","f.select":"選択してください","f.people":"人数","f.country":"出身国","f.c.jp":"日本","f.c.us":"アメリカ","f.c.cn":"中国","f.c.tw":"台湾","f.c.kr":"韓国","f.c.hk":"香港","f.c.th":"タイ","f.c.sg":"シンガポール","f.c.au":"オーストラリア","f.c.gb":"イギリス","f.c.fr":"フランス","f.c.de":"ドイツ","f.c.ca":"カナダ","f.c.other":"その他","f.msg":"ご要望（任意）","f.submit":"この内容で予約する",
       "f.ok":"ご予約リクエストを受け付けました。この時点ではご予約は確定しておりません。内容を確認のうえ、店舗よりご連絡いたします。",
       "faq.h2":"よくあるご質問",
-      "faq.q1":"予約は必要ですか？","faq.a1":"いいえ、予約なしでもご入店・ご購入いただけます。事前予約は確実にご案内するための任意のご連絡です。",
+      "faq.q1":"予約は必要ですか？","faq.a1":"いいえ、予約なしでもご入店・ご購入いただけます。\n事前予約は確実にご案内するための任意のご連絡です。",
       "faq.q2":"支払い方法は？","faq.a2":"店頭でのお支払いはクレジットカードのみとなります。",
-      "faq.q3":"最寄り駅からどのくらいですか？","faq.a3":"JR浅草橋駅・馬喰町駅から徒歩約5分、JR秋葉原駅から徒歩約10分です。",
-      "faq.q4":"外国語での対応は可能ですか？","faq.a4":"予約フォームの「ご要望」欄で希望する言語をお知らせください。可能な範囲でご案内いたします。",
-      "faq.q5":"営業時間を教えてください。","faq.a5":"10:00〜16:00です。土日も営業しています。",
-      "faq.q6":"駐車場はありますか？","faq.a6":"専用駐車場はございません。お近くのコインパーキングをご利用ください。",
-      "faq.q7":"店頭に商品がない場合はどうすればよいですか？","faq.a7":"取扱商品は時期により変わります。店頭にない商品は、公式オンラインショップでご確認いただけます。",
+      "faq.q3":"最寄り駅からどのくらいですか？","faq.a3":"JR浅草橋駅・馬喰町駅から徒歩約5分、JR秋葉原駅・都営浅草線浅草橋駅から徒歩約10分です。",
+      "faq.q4":"外国語での対応は可能ですか？","faq.a4":"予約フォームの「ご要望」欄で希望する言語をお知らせください。\n可能な範囲でご案内いたします。",
+      "faq.q5":"営業時間を教えてください。","faq.a5":"10:00〜16:00です。\n土日も営業しています。\n営業時間は変更となる場合がございますので、最新情報は公式サイトのお知らせをご確認ください。",
+      "faq.q6":"駐車場はありますか？","faq.a6":"駐車場はございません。\n近隣のコインパーキング等をご利用ください。",
+      "faq.q7":"店頭に商品がない場合はどうすればよいですか？","faq.a7":"取扱商品は時期により変更になる場合がございます。\n店頭に在庫のない商品は、公式オンラインショップをご利用ください。",
       "sticky.strong":"元気の出るかばんに会いに。"
     },
     en: {
@@ -563,7 +564,7 @@
       "phil.lead":"A bag is more than a tool. It lifts your mood, brings inspiration to your everyday life, colors your outfit, and reflects who you are. We want this store to be where you meet that special bag.",
       "concept.h2":"Kyowa's first flagship store.",
       "concept.copy1":"Since its founding in 1948, Kyowa has created refined bags for every scene — from school randoseru to suitcases, business bags, casual bags and small goods. This, our first flagship store, condenses that world into a single floor on a quiet street in Higashi-Kanda / Asakusabashi, where you can browse everything from staples to limited colors. Find your own one piece along your journey.",
-      "concept.copy2":"Our staff attend to each guest, helping you choose to suit your needs and taste. Hold it, wear it, feel the texture — experience here what photos alone cannot convey.",
+      "concept.copy2":"Our staff attend to each guest, helping you choose to suit your needs and taste. See it, touch it, feel it — this is where our collection, built on our craft and care, comes to life.",
       "prod.h2":"Signature items",
       "prod.lead":"A selection from our lineup, including the Leather Style series and TRAVELIST. The lineup may change from time to time.",
       "prod.1":"Kawaii Chic Shoulder (Regular)","prod.2":"Kawaii Chic Mini Backpack","prod.3":"Leather-Style Backpack",
@@ -577,7 +578,7 @@
       "story.s3h":"Handcrafted by artisans","story.s3p":"In our own factory, skilled artisans craft each piece with care — understated, gently elevating the one who carries it.",
       "sns.h2":"As featured on social media","sns.lead":"Posts featuring visits and products. Just paste each post's URL (permalink) into a frame to embed it.","sns.slot":"Paste a post URL","sns.cta":"View on Instagram (@kyowa_shop)",
       "map.h2":"Access",
-      "map.acc1":"5 min walk from JR Asakusabashi Sta.","map.acc2":"5 min walk from JR Bakurocho Sta.","map.acc3":"10 min walk from JR Akihabara Sta.",
+      "map.acc1":"5 min walk from JR Asakusabashi Sta.","map.acc2":"5 min walk from JR Bakurocho Sta.","map.acc3":"10 min walk from JR Akihabara Sta.","map.acc4":"10 min walk from Toei Asakusa Line Asakusabashi Sta.",
       "map.hours":"10:00 – 16:00 (open on weekends too)","map.payment":"Credit cards","map.address":"WORKING FORT Higashi-Kanda, 2-10-16 Higashi-Kanda, Chiyoda-ku, Tokyo 101-0031",
       "footer.addr":"WORKING FORT Higashi-Kanda, 2-10-16 Higashi-Kanda, Chiyoda-ku, Tokyo 101-0031","footer.hours":"10:00–16:00 (open on weekends too)","footer.company":"Kyowa Co., Ltd.",
       "rsv.h2":"Reserve your visit","rsv.lead":"Let us know your preferred date and time for a smooth visit.",
@@ -587,11 +588,11 @@
       "faq.h2":"Frequently asked questions",
       "faq.q1":"Do I need a reservation?","faq.a1":"No. You can visit and shop without one. Booking ahead is optional, just to ensure we can assist you.",
       "faq.q2":"What payment methods do you accept?","faq.a2":"In-store payment is by credit card only.",
-      "faq.q3":"How far is it from the nearest station?","faq.a3":"About 5 min on foot from JR Asakusabashi / Bakurocho Sta., and about 10 min from JR Akihabara Sta.",
+      "faq.q3":"How far is it from the nearest station?","faq.a3":"About 5 min on foot from JR Asakusabashi / Bakurocho Sta., and about 10 min from JR Akihabara Sta. or the Toei Asakusa Line Asakusabashi Sta.",
       "faq.q4":"Can you assist in other languages?","faq.a4":"Let us know your preferred language in the message field of the reservation form; we will assist as best we can.",
-      "faq.q5":"What are your opening hours?","faq.a5":"10:00–16:00. We are open on weekends too.",
-      "faq.q6":"Is parking available?","faq.a6":"We do not have dedicated parking. Please use a nearby coin-operated parking lot.",
-      "faq.q7":"What if an item is out of stock in store?","faq.a7":"Our lineup changes seasonally. If an item is not in stock, please check our official online shop.",
+      "faq.q5":"What are your opening hours?","faq.a5":"10:00-16:00. We are open on weekends too. Hours are subject to change, so please check the official site for the latest notices.",
+      "faq.q6":"Is parking available?","faq.a6":"There is no parking at the store. Please use a nearby coin-operated parking lot.",
+      "faq.q7":"What if an item is out of stock in store?","faq.a7":"Our lineup may change from time to time. If an item is not in stock at the store, please use our official online shop.",
       "sticky.strong":"Come meet a bag that lifts your spirits."
     }
   };
@@ -604,7 +605,9 @@
       var qa=[];
       for(var i=1;i<=7;i++){
         var q=dict['faq.q'+i], a=dict['faq.a'+i];
-        if(q&&a) qa.push({"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}});
+        // 表示は文単位で改行するが（\n, .lead 等の white-space:pre-line）、構造化データは
+        // AI/検索エンジンが読む1本のテキストとして空白区切りに戻す。
+        if(q&&a) qa.push({"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a.replace(/\n/g,' ')}});
       }
       var el=document.getElementById('faq-jsonld');
       if(el) el.textContent = JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","inLanguage":lang,"mainEntity":qa});
