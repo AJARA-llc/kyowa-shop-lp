@@ -189,7 +189,8 @@
   .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);
     border-top:1px solid var(--line);padding:10px 16px;display:none}
   .sticky-cta .row{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:var(--maxw);margin:0 auto}
-  .sticky-cta strong{font-size:.85rem;font-weight:500}
+  .sticky-cta strong{font-size:.85rem;font-weight:500;flex:1 1 auto;min-width:0;line-height:1.45;text-wrap:balance}
+  .sticky-cta .btn{flex:0 0 auto;white-space:nowrap}  /* ボタンは縮めず1行固定、文言側を折り返す */
 
   @media (max-width:860px){
     .split,.products-grid,.story-grid,.map-grid{grid-template-columns:1fr}
