@@ -171,6 +171,8 @@
   .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
   .field{margin-bottom:18px}
   .field label{display:block;font-family:var(--serif);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sub);margin-bottom:7px}
+  .field label .req{color:var(--accent);margin-left:.3em;text-transform:none;letter-spacing:0}
+  .req-note{font-size:.8rem;color:var(--sub);text-align:center;margin:2px 0 18px}
   .field input,.field select,.field textarea{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:var(--radius);
     font-family:inherit;font-size:16px;background:var(--paper);color:var(--ink)}
     /* 16px 固定: iOS Safari は入力欄の font-size が 16px 未満だとタップ時に自動ズームし、
@@ -438,15 +440,16 @@
       <h2 class="h2" data-i18n="rsv.h2">ご来店の予約</h2>
       <p class="lead center" style="margin:0 auto 4px" data-i18n="rsv.lead">日時をお知らせいただければ、スムーズにご案内いたします。</p>
       <div class="reserve-note" data-i18n="rsv.note">ご予約なしでもご入店・ご購入いただけます。事前予約は、確実にご案内するための任意のご連絡です。</div>
+      <p class="req-note" data-i18n="rsv.required">* は必須項目です</p>
       <form class="form" id="reserveForm" novalidate>
         <div class="form-row">
-          <div class="field"><label for="name" data-i18n="f.name">お名前</label><input id="name" name="name" required autocomplete="name" /></div>
-          <div class="field"><label for="email" data-i18n="f.email">メール</label><input id="email" name="email" type="email" required autocomplete="email" /></div>
-          <div class="field"><label for="phone" data-i18n="f.phone">電話番号</label><input id="phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" /></div>
+          <div class="field"><label for="name"><span data-i18n="f.name">お名前</span><span class="req" aria-hidden="true">*</span></label><input id="name" name="name" required autocomplete="name" /></div>
+          <div class="field"><label for="email"><span data-i18n="f.email">メール</span><span class="req" aria-hidden="true">*</span></label><input id="email" name="email" type="email" required autocomplete="email" /></div>
+          <div class="field"><label for="phone"><span data-i18n="f.phone">電話番号</span><span class="req" aria-hidden="true">*</span></label><input id="phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" /></div>
         </div>
         <div class="form-row">
-          <div class="field"><label for="date" data-i18n="f.date">希望日</label><input id="date" name="date" type="date" required /></div>
-          <div class="field"><label for="time" data-i18n="f.time">希望時間</label>
+          <div class="field"><label for="date"><span data-i18n="f.date">希望日</span><span class="req" aria-hidden="true">*</span></label><input id="date" name="date" type="date" required /></div>
+          <div class="field"><label for="time"><span data-i18n="f.time">希望時間</span><span class="req" aria-hidden="true">*</span></label>
             <select id="time" name="time" required>
               <option value="" data-i18n="f.select">選択してください</option>
               <option>10:00</option><option>11:00</option><option>12:00</option>
@@ -455,14 +458,14 @@
           </div>
         </div>
         <div class="form-row">
-          <div class="field"><label for="people" data-i18n="f.people">人数</label>
+          <div class="field"><label for="people"><span data-i18n="f.people">人数</span><span class="req" aria-hidden="true">*</span></label>
             <select id="people" name="people" required><option>1</option><option>2</option><option>3</option><option>4+</option></select>
           </div>
-          <div class="field"><label for="country" data-i18n="f.country">出身国</label>
+          <div class="field"><label for="country"><span data-i18n="f.country">出身国</span><span class="req" aria-hidden="true">*</span></label>
             <select id="country" name="country" required><option value="Japan" data-i18n="f.c.jp">日本</option><option value="United States" data-i18n="f.c.us">アメリカ</option><option value="China" data-i18n="f.c.cn">中国</option><option value="Taiwan" data-i18n="f.c.tw">台湾</option><option value="South Korea" data-i18n="f.c.kr">韓国</option><option value="Hong Kong" data-i18n="f.c.hk">香港</option><option value="Thailand" data-i18n="f.c.th">タイ</option><option value="Singapore" data-i18n="f.c.sg">シンガポール</option><option value="Australia" data-i18n="f.c.au">オーストラリア</option><option value="United Kingdom" data-i18n="f.c.gb">イギリス</option><option value="France" data-i18n="f.c.fr">フランス</option><option value="Germany" data-i18n="f.c.de">ドイツ</option><option value="Canada" data-i18n="f.c.ca">カナダ</option><option value="Other" data-i18n="f.c.other">その他</option></select>
           </div>
         </div>
-        <div class="field"><label for="msg" data-i18n="f.msg">ご要望</label><textarea id="msg" name="msg" rows="3" required></textarea></div>
+        <div class="field"><label for="msg"><span data-i18n="f.msg">ご要望</span><span class="req" aria-hidden="true">*</span></label><textarea id="msg" name="msg" rows="3" required></textarea></div>
         <button type="submit" class="btn" data-i18n="f.submit">この内容で予約する</button>
         <div class="form-ok" id="formOk" data-i18n="f.ok">ご予約リクエストを受け付けました。この時点ではご予約は確定しておりません。内容を確認のうえ、店舗よりご連絡いたします。</div>
       </form>
@@ -541,7 +544,7 @@
       "map.hours":"10:00 – 16:00（土日も営業）","map.payment":"クレジットカード","map.address":"〒101-0031 東京都千代田区東神田2-10-16 WORKING FORT東神田",
       "footer.addr":"〒101-0031 東京都千代田区東神田2-10-16 WORKING FORT東神田","footer.hours":"10:00–16:00（土日も営業）","footer.company":"株式会社協和",
       "rsv.h2":"ご来店の予約","rsv.lead":"日時をお知らせいただければ、スムーズにご案内いたします。",
-      "rsv.note":"ご予約なしでもご入店・ご購入いただけます。\n事前予約は、確実にご案内するための任意のご連絡です。",
+      "rsv.note":"ご予約なしでもご入店・ご購入いただけます。\n事前予約は、確実にご案内するための任意のご連絡です。","rsv.required":"* は必須項目です",
       "f.name":"お名前","f.email":"メール","f.phone":"電話番号","f.date":"希望日","f.time":"希望時間","f.select":"選択してください","f.people":"人数","f.country":"出身国","f.c.jp":"日本","f.c.us":"アメリカ","f.c.cn":"中国","f.c.tw":"台湾","f.c.kr":"韓国","f.c.hk":"香港","f.c.th":"タイ","f.c.sg":"シンガポール","f.c.au":"オーストラリア","f.c.gb":"イギリス","f.c.fr":"フランス","f.c.de":"ドイツ","f.c.ca":"カナダ","f.c.other":"その他","f.msg":"ご要望","f.submit":"この内容で予約する",
       "f.ok":"ご予約リクエストを受け付けました。この時点ではご予約は確定しておりません。内容を確認のうえ、店舗よりご連絡いたします。",
       "faq.h2":"よくあるご質問",
@@ -581,7 +584,7 @@
       "map.hours":"10:00 – 16:00 (open on weekends too)","map.payment":"Credit cards","map.address":"WORKING FORT Higashi-Kanda, 2-10-16 Higashi-Kanda, Chiyoda-ku, Tokyo 101-0031",
       "footer.addr":"WORKING FORT Higashi-Kanda, 2-10-16 Higashi-Kanda, Chiyoda-ku, Tokyo 101-0031","footer.hours":"10:00–16:00 (open on weekends too)","footer.company":"Kyowa Co., Ltd.",
       "rsv.h2":"Reserve your visit","rsv.lead":"Let us know your preferred date and time for a smooth visit.",
-      "rsv.note":"You are welcome to visit and shop without a reservation. Booking ahead is optional — just to make sure we can assist you.",
+      "rsv.note":"You are welcome to visit and shop without a reservation. Booking ahead is optional — just to make sure we can assist you.", "rsv.required":"* Required",
       "f.name":"Name","f.email":"Email","f.phone":"Phone number","f.date":"Preferred date","f.time":"Preferred time","f.select":"Please select","f.people":"Guests","f.country":"Country","f.c.jp":"Japan","f.c.us":"United States","f.c.cn":"China","f.c.tw":"Taiwan","f.c.kr":"South Korea","f.c.hk":"Hong Kong","f.c.th":"Thailand","f.c.sg":"Singapore","f.c.au":"Australia","f.c.gb":"United Kingdom","f.c.fr":"France","f.c.de":"Germany","f.c.ca":"Canada","f.c.other":"Other","f.msg":"Message","f.submit":"Reserve",
       "f.ok":"Your reservation request has been received. Submitting this form does not confirm your reservation. Our staff will contact you after reviewing your request.",
       "faq.h2":"Frequently asked questions",
